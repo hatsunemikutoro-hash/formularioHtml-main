@@ -22,6 +22,14 @@
         <label for="senha">Senha</label>
         <input type="password" id="senha" placeholder="Digite sua senha" required minlength="6">
       </div>
+      <div class="input-group">
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" placeholder="Digite seu telefone" required minlength="9">
+      </div>
+      <div class="input-group">
+        <label for="CPF">CPF</label>
+        <input type="text" id="cpf" placeholder="Digite seu cpf" required minlength="11">
+      </div>
       <button type="submit">Cadastrar</button>
       <p class="message" id="successMsg">Cadastro realizado com sucesso ✅</p>
     </form>
@@ -37,14 +45,27 @@
       const nome = document.getElementById("nome").value.trim();
       const email = document.getElementById("email").value.trim();
       const senha = document.getElementById("senha").value.trim();
+      const cpf = document.getElementById("cpf").value.trim();
+      const phoneNum = document.getElementById("telefone").value.trim();
 
-      if (nome === "" || email === "" || senha === "") {
+
+      if (nome === "" || email === "" || senha === "" || phoneNum === "" || cpf === "") {
         alert("Por favor, preencha todos os campos!");
         return;
       }
 
       if (senha.length < 6) {
         alert("A senha deve ter pelo menos 6 caracteres.");
+        return;
+      }
+
+      if (phoneNum.length < 9) {
+        alert("Este não é um formato de numero válido");
+        return;
+      }
+
+      if (cpf.length < 11) {
+        alert("Este formato de cpf é invalido");
         return;
       }
 
